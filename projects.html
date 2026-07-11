@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diana — Projects</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="start-btn">teanabyss</a>
+      <a href="posts.html">posts</a>
+      <a href="projects.html" class="opened-window">projects</a>
+      <a href="#">other</a>
+    </nav>
+
+    <!-- PROJECTS -->
+    <div class="projects-container">
+
+      <!-- single project card -->
+      <div class="window-frame">
+  <div class="project-card">
+    <div class="title-bar">
+      <span>Project Properties</span>
+    </div>
+    <div class="project-card-content">
+      <img src="https://github.com/teaNabyss.png" alt="project image" class="project-img">
+      <div class="project-info">
+        <p class="project-name">Project Name</p>
+        <p class="project-desc">A short description of what this project is about and what I learned from it.</p>
+      </div>
+      <div class="project-buttons">
+        <button class="win-btn proceed-btn" data-name="Project Name" data-url="https://github.com/teaNabyss">Proceed</button>
+        <button class="win-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>Diana</span>
+      <span>in the abyss</span>
+    </footer>
+
+  </div>
+
+  <!-- DIALOG POPUP -->
+  <div class="dialog-overlay" id="dialog-overlay">
+    <div class="dialog-box">
+      <div class="title-bar">
+        <span>Confirm</span>
+      </div>
+      <div class="dialog-content">
+        <p id="dialog-text">Do you want to proceed?</p>
+        <div class="dialog-buttons">
+          <button class="win-btn" id="dialog-ok">OK</button>
+          <button class="win-btn" id="dialog-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('dialog-overlay');
+    const dialogText = document.getElementById('dialog-text');
+    const dialogOk = document.getElementById('dialog-ok');
+    const dialogCancel = document.getElementById('dialog-cancel');
+    let currentUrl = '';
+
+    document.querySelectorAll('.proceed-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        currentUrl = btn.getAttribute('data-url');
+        dialogText.textContent = `Do you want to proceed to ${name} GitHub page?`;
+        overlay.style.display = 'flex';
+      });
+    });
+
+    document.querySelectorAll('.win-btn:not(.proceed-btn)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+    });
+
+    dialogOk.addEventListener('click', () => {
+      window.open(currentUrl, '_blank');
+      overlay.style.display = 'none';
+    });
+
+    dialogCancel.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
