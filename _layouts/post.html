@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="posts-container">
+  <div class="window-frame">
+    <div class="main">
+      <div class="title-bar">
+        <span>{{ page.title }}</span>
+      </div>
+      <div class="main-content">
+        <p class="post-meta">{{ page.date | date: "%B %d, %Y" }}</p>
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>
