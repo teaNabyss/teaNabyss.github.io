@@ -12,7 +12,9 @@ title: Posts
       <div class="posts-list">
         {% for post in site.posts %}
         <a href="{{ post.url }}" class="post-row">
-          <img src="{{ post.image }}" alt="post image">
+         {% if post.image %}
+            <img src="{{ post.image }}" alt="post image">
+        {% endif %}
           <span class="post-name">{{ post.title }}</span>
           <span class="post-desc">{{ post.description }}</span>
           <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
