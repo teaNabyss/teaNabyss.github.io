@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+.page-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 /* BASE */
 body {
   background-color: #1a2849;
