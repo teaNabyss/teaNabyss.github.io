@@ -2,35 +2,23 @@
 layout: default
 title: Posts
 ---
-   
-    <!-- POSTS -->
-    <div class="posts-container">
-      <div class="posts-frame">
-        <div class="posts-window">
 
-          <div class="title-bar">
-            <span>posts</span>
-          </div>
-
-          <div class="posts-list">
-
-            <!-- single post row -->
-            <a href="#" class="post-row">
-              <img src="https://github.com/teaNabyss.png" alt="post image">
-              <span class="post-name">First post</span>
-              <span class="post-desc">This is my first post</span>
-              <span class="post-date">2026-06-24</span>
-            </a>
-
-            <a href="#" class="post-row">
-              <img src="https://github.com/teaNabyss.png" alt="post image">
-              <span class="post-name">Another post</span>
-              <span class="post-desc">This is my another post.</span>
-              <span class="post-date">2026-06-25</span>
-            </a>
-
-          </div>
-        </div>
+<div class="posts-container">
+  <div class="posts-frame">
+    <div class="posts-window">
+      <div class="title-bar">
+        <span>posts</span>
+      </div>
+      <div class="posts-list">
+        {% for post in site.posts %}
+        <a href="{{ post.url }}" class="post-row">
+          <img src="{{ post.image }}" alt="post image">
+          <span class="post-name">{{ post.title }}</span>
+          <span class="post-desc">{{ post.description }}</span>
+          <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </a>
+        {% endfor %}
       </div>
     </div>
-
+  </div>
+</div>
