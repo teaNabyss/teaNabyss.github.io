@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hello World!"
-date: 2026-06-24
+date: 2026-07-13
 description: "My first post on this site."
 
 ---
