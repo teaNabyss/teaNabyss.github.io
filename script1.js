@@ -25,9 +25,44 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // close greetings
-  document.getElementById('close-greetings').addEventListener('click', () => {
-    document.getElementById('greetings-popup').style.display = 'none';
-    document.getElementById('nav-greetings').classList.remove('opened-window');
-  });
+  const closeBtn = document.getElementById('close-greetings');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      document.getElementById('greetings-popup').style.display = 'none';
+      document.getElementById('nav-greetings').classList.remove('opened-window');
+    });
+  }
+  // dialog popup
+  const overlay = document.getElementById('dialog-overlay');
+  if (overlay) {
+    const dialogText = document.getElementById('dialog-text');
+    const dialogOk = document.getElementById('dialog-ok');
+    const dialogCancel = document.getElementById('dialog-cancel');
+    let currentUrl = '';
+
+    document.querySelectorAll('.proceed-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        currentUrl = btn.getAttribute('data-url');
+        dialogText.textContent = `Do you want to proceed to ${name} GitHub page?`;
+        overlay.style.display = 'flex';
+      });
+    });
+
+    dialogOk.addEventListener('click', () => {
+      window.open(currentUrl, '_blank');
+      overlay.style.display = 'none';
+    });
+
+    dialogCancel.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+
+    document.querySelectorAll('.win-btn:not(.proceed-btn)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+    });
+  }
 
 });
