@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Diana — Projects</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <div class="page-wrapper">
-
-    <!-- NAV -->
-    <nav>
-      <a href="index.html" class="start-btn">teanabyss</a>
-      <a href="posts.html">posts</a>
-      <a href="projects.html" class="opened-window">projects</a>
-      <a href="#">other</a>
-    </nav>
-
+---
+layout: default
+title: Projects
+---
     <!-- PROJECTS -->
     <div class="projects-container">
 
@@ -42,14 +27,6 @@
 
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <span>Diana</span>
-      <span>in the abyss</span>
-    </footer>
-
-  </div>
-
   <!-- DIALOG POPUP -->
   <div class="dialog-overlay" id="dialog-overlay">
     <div class="dialog-box">
@@ -66,37 +43,5 @@
     </div>
   </div>
 
-  <script>
-    const overlay = document.getElementById('dialog-overlay');
-    const dialogText = document.getElementById('dialog-text');
-    const dialogOk = document.getElementById('dialog-ok');
-    const dialogCancel = document.getElementById('dialog-cancel');
-    let currentUrl = '';
+  
 
-    document.querySelectorAll('.proceed-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-name');
-        currentUrl = btn.getAttribute('data-url');
-        dialogText.textContent = `Do you want to proceed to ${name} GitHub page?`;
-        overlay.style.display = 'flex';
-      });
-    });
-
-    document.querySelectorAll('.win-btn:not(.proceed-btn)').forEach(btn => {
-      btn.addEventListener('click', () => {
-        overlay.style.display = 'none';
-      });
-    });
-
-    dialogOk.addEventListener('click', () => {
-      window.open(currentUrl, '_blank');
-      overlay.style.display = 'none';
-    });
-
-    dialogCancel.addEventListener('click', () => {
-      overlay.style.display = 'none';
-    });
-  </script>
-
-</body>
-</html>
