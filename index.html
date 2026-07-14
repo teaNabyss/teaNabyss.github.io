@@ -81,7 +81,12 @@ title: Home
           <div class="sidebar-window">
            <div class="title-bar"><span>current project</span></div>
                 <div class="sidebar-content">
-                  <p id="current-project">Work in progress.</p>
+                  {% assign current = site.projects | where: "current", true | first %}
+                  {% if current %}
+            <a href="{{ current.github_url }}" class="sidebar-post">{{ current.name }}</a>
+                  {% else %}
+            <p>No current project.</p>
+                  {% endif %}
                 </div>
           </div>
        </div>
