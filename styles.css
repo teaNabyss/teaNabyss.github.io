@@ -356,11 +356,9 @@ footer {
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
   align-items: start;
   overflow-y: auto;
   max-height: calc(100vh - 150px);
-  padding-right: 20px;
 }
 
 .projects-container::-webkit-scrollbar {
