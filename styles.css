@@ -358,6 +358,36 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: start;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}
+
+.projects-container::-webkit-scrollbar {
+  width: 16px;
+}
+
+.projects-container::-webkit-scrollbar-track {
+  background: #c4c1e0;
+  background-image: radial-gradient(circle, #fafafa 1px, transparent 1px);
+  background-size: 3px 3px;
+  border-left: 1px solid #ffffff;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  background: #c4c1e0;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.projects-container::-webkit-scrollbar-button {
+  background: #c4c1e0;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  height: 16px;
 }
 
 .project-card {
