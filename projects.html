@@ -2,46 +2,44 @@
 layout: default
 title: Projects
 ---
-    <!-- PROJECTS -->
-    <div class="projects-container">
 
-      <!-- single project card -->
-      <div class="window-frame">
-  <div class="project-card">
-    <div class="title-bar">
-      <span>Project Properties</span>
-    </div>
-    <div class="project-card-content">
-      <img src="https://github.com/teaNabyss.png" alt="project image" class="project-img">
-      <div class="project-info">
-        <p class="project-name">Project Name</p>
-        <p class="project-desc">A short description of what this project is about and what I learned from it.</p>
-      </div>
-      <div class="project-buttons">
-        <button class="win-btn proceed-btn" data-name="Project Name" data-url="https://github.com/teaNabyss">Proceed</button>
-        <button class="win-btn">Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-    </div>
-
-  <!-- DIALOG POPUP -->
-  <div class="dialog-overlay" id="dialog-overlay">
-    <div class="dialog-box">
+<div class="projects-container">
+  {% for project in site.projects %}
+  <div class="window-frame">
+    <div class="project-card">
       <div class="title-bar">
-        <span>Confirm</span>
+        <span>Project Properties</span>
       </div>
-      <div class="dialog-content">
-        <p id="dialog-text">Do you want to proceed?</p>
-        <div class="dialog-buttons">
-          <button class="win-btn" id="dialog-ok">OK</button>
-          <button class="win-btn" id="dialog-cancel">Cancel</button>
+      <div class="project-card-content">
+        {% if project.image %}
+        <img src="{{ project.image }}" alt="{{ project.name }}" class="project-img">
+        {% endif %}
+        <div class="project-info">
+          <p class="project-name">{{ project.name }}</p>
+          <p class="project-desc">{{ project.description }}</p>
+        </div>
+        <div class="project-buttons">
+          <button class="win-btn proceed-btn" data-name="{{ project.name }}" data-url="{{ project.url }}">Proceed</button>
+          <button class="win-btn">Cancel</button>
         </div>
       </div>
     </div>
   </div>
+  {% endfor %}
+</div>
 
-  
-
+<!-- DIALOG POPUP -->
+<div class="dialog-overlay" id="dialog-overlay">
+  <div class="dialog-box">
+    <div class="title-bar">
+      <span>Confirm</span>
+    </div>
+    <div class="dialog-content">
+      <p id="dialog-text">Do you want to proceed?</p>
+      <div class="dialog-buttons">
+        <button class="win-btn" id="dialog-ok">OK</button>
+        <button class="win-btn" id="dialog-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
