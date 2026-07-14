@@ -2,7 +2,7 @@
 layout: default
 title: Projects
 ---
-
+<div class="projects-wrapper">
 <div class="projects-container">
 {% assign sorted_projects = site.projects | sort: "date" | reverse %}
 {% for project in sorted_projects %}
@@ -26,7 +26,7 @@ title: Projects
   </div>
   {% endfor %}
 </div>
-
+</div>
 <!-- DIALOG POPUP -->
 <div class="dialog-overlay" id="dialog-overlay">
   <div class="dialog-box">
@@ -34,7 +34,7 @@ title: Projects
       <span>Confirm</span>
     </div>
     <div class="dialog-content">
-      <p id="dialog-text">Do you want to proceed?</p>
+      <p id="dialog-text">Do you want to proceed to github page?</p>
       <div class="dialog-buttons">
         <button class="win-btn" id="dialog-ok">OK</button>
         <button class="win-btn" id="dialog-cancel">Cancel</button>
