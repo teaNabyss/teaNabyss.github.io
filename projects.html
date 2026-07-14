@@ -4,11 +4,12 @@ title: Projects
 ---
 
 <div class="projects-container">
-  {% for project in site.projects %}
+{% assign sorted_projects = site.projects | sort: "date" | reverse %}
+{% for project in sorted_projects %}
   <div class="window-frame">
     <div class="project-card">
       <div class="title-bar">
-        <span>Project Properties</span>
+        <span>{{ project.name }}</span>
       </div>
       <div class="project-card-content">
         {% if project.image %}
