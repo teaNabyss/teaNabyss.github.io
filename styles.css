@@ -351,14 +351,19 @@ footer {
 }
 
 /* PROJECTS PAGE */
-.projects-container {
+.projects-wrapper {
   margin: 40px;
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
   overflow-y: auto;
   max-height: calc(100vh - 150px);
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  padding-right: 10px;
 }
 
 .projects-container::-webkit-scrollbar {
