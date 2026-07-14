@@ -2,3 +2,7 @@ title: Diana
 description: in the abyss
 url: "https://teanabyss.github.io"
 permalink: /posts/:slug/
+
+collections:
+  projects:
+    output: false
