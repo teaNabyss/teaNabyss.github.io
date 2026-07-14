@@ -354,7 +354,7 @@ footer {
 .projects-wrapper {
   flex-grow: 1;
   overflow-y: auto;
-  max-height: calc(100vh - 150px);
+  max-height: calc(100vh - 200px);
   margin: 40px 0;
 }
 
@@ -366,18 +366,18 @@ footer {
   padding: 0 40px;
 }
 
-.projects-container::-webkit-scrollbar {
+.projects-wrapper::-webkit-scrollbar {
   width: 16px;
 }
 
-.projects-container::-webkit-scrollbar-track {
+.projects-wrapper::-webkit-scrollbar-track {
   background: #c4c1e0;
   background-image: radial-gradient(circle, #fafafa 1px, transparent 1px);
   background-size: 3px 3px;
   border-left: 1px solid #ffffff;
 }
 
-.projects-container::-webkit-scrollbar-thumb {
+.projects-wrapper::-webkit-scrollbar-thumb {
   background: #c4c1e0;
   border-top: 1px solid #ffffff;
   border-left: 1px solid #ffffff;
@@ -385,7 +385,7 @@ footer {
   border-bottom: 1px solid #000000;
 }
 
-.projects-container::-webkit-scrollbar-button {
+.projects-wrapper::-webkit-scrollbar-button {
   background: #c4c1e0;
   border-top: 1px solid #ffffff;
   border-left: 1px solid #ffffff;
