@@ -40,14 +40,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const dialogCancel = document.getElementById('dialog-cancel');
     let currentUrl = '';
 
-    document.querySelectorAll('.proceed-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-name');
-        currentUrl = btn.getAttribute('data-url');
-        dialogText.textContent = `Do you want to proceed to ${name} GitHub page?`;
-        overlay.style.display = 'flex';
-      });
-    });
+   document.querySelectorAll('.proceed-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.getAttribute('data-name');
+    const github = btn.getAttribute('data-github');
+    const itchio = btn.getAttribute('data-itchio');
+    const project = btn.getAttribute('data-project');
+
+    dialogText.textContent = `Where do you want to proceed with ${name}?`;
+
+    dialogButtons.innerHTML = '';
+
+    if (github) {
+      const ghBtn = document.createElement('button');
+      ghBtn.className = 'win-btn';
+      ghBtn.textContent = 'GitHub';
+      ghBtn.addEventListener('click', () => { window.open(github, '_blank'); overlay.style.display = 'none'; });
+      dialogButtons.appendChild(ghBtn);
+    }
+
+    if (itchio) {
+      const itchBtn = document.createElement('button');
+      itchBtn.className = 'win-btn';
+      itchBtn.textContent = 'itch.io';
+      itchBtn.addEventListener('click', () => { window.open(itchio, '_blank'); overlay.style.display = 'none'; });
+      dialogButtons.appendChild(itchBtn);
+    }
+
+    if (project) {
+      const projBtn = document.createElement('button');
+      projBtn.className = 'win-btn';
+      projBtn.textContent = 'Website';
+      projBtn.addEventListener('click', () => { window.open(project, '_blank'); overlay.style.display = 'none'; });
+      dialogButtons.appendChild(projBtn);
+    }
+
+    const cancelBtn = document.createElement('button');
+    cancelBtn.className = 'win-btn';
+    cancelBtn.textContent = 'Cancel';
+    cancelBtn.addEventListener('click', () => { overlay.style.display = 'none'; });
+    dialogButtons.appendChild(cancelBtn);
+
+    overlay.style.display = 'flex';
+  });
+});
 
     dialogOk.addEventListener('click', () => {
       window.open(currentUrl, '_blank');
