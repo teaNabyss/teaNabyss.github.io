@@ -82,4 +82,5 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'flex';
       });
     });
-
+ }  
+});
