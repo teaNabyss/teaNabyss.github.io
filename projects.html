@@ -19,14 +19,12 @@ title: Projects
           <p class="project-desc">{{ project.description }}</p>
         </div>
         <div class="project-buttons">
-        <button class="win-btn proceed-btn" data-name="{{ project.name }}" 
-                  {% if project.project_url %}
-                data-url="{{ project.project_url }}"
-                  {% elsif project.itchio_url %}
-                data-url="{{ project.itchio_url }}"
-                  {% elsif project.github_url %}
-                data-url="{{ project.github_url }}"
-                  {% endif %}>Proceed</button>
+       <button class="win-btn proceed-btn" 
+              data-name="{{ project.name }}"
+              data-github="{{ project.github_url }}"
+              data-itchio="{{ project.itchio_url }}"
+              data-project="{{ project.project_url }}">Proceed</button>
+          
         </div>
       </div>
     </div>
