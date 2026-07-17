@@ -32,73 +32,55 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('nav-greetings').classList.remove('opened-window');
     });
   }
+  
   // dialog popup
-  const overlay = document.getElementById('dialog-overlay');
+ const overlay = document.getElementById('dialog-overlay');
   if (overlay) {
     const dialogText = document.getElementById('dialog-text');
-    const dialogOk = document.getElementById('dialog-ok');
-    const dialogCancel = document.getElementById('dialog-cancel');
-    let currentUrl = '';
+    const dialogButtons = document.getElementById('dialog-buttons');
 
-   document.querySelectorAll('.proceed-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const name = btn.getAttribute('data-name');
-    const github = btn.getAttribute('data-github');
-    const itchio = btn.getAttribute('data-itchio');
-    const project = btn.getAttribute('data-project');
-
-    dialogText.textContent = `Where do you want to proceed with ${name}?`;
-
-    dialogButtons.innerHTML = '';
-
-    if (github) {
-      const ghBtn = document.createElement('button');
-      ghBtn.className = 'win-btn';
-      ghBtn.textContent = 'GitHub';
-      ghBtn.addEventListener('click', () => { window.open(github, '_blank'); overlay.style.display = 'none'; });
-      dialogButtons.appendChild(ghBtn);
-    }
-
-    if (itchio) {
-      const itchBtn = document.createElement('button');
-      itchBtn.className = 'win-btn';
-      itchBtn.textContent = 'itch.io';
-      itchBtn.addEventListener('click', () => { window.open(itchio, '_blank'); overlay.style.display = 'none'; });
-      dialogButtons.appendChild(itchBtn);
-    }
-
-    if (project) {
-      const projBtn = document.createElement('button');
-      projBtn.className = 'win-btn';
-      projBtn.textContent = 'Website';
-      projBtn.addEventListener('click', () => { window.open(project, '_blank'); overlay.style.display = 'none'; });
-      dialogButtons.appendChild(projBtn);
-    }
-
-    const cancelBtn = document.createElement('button');
-    cancelBtn.className = 'win-btn';
-    cancelBtn.textContent = 'Cancel';
-    cancelBtn.addEventListener('click', () => { overlay.style.display = 'none'; });
-    dialogButtons.appendChild(cancelBtn);
-
-    overlay.style.display = 'flex';
-  });
-});
-
-    dialogOk.addEventListener('click', () => {
-      window.open(currentUrl, '_blank');
-      overlay.style.display = 'none';
-    });
-
-    dialogCancel.addEventListener('click', () => {
-      overlay.style.display = 'none';
-    });
-
-    document.querySelectorAll('.win-btn:not(.proceed-btn)').forEach(btn => {
+    document.querySelectorAll('.proceed-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        overlay.style.display = 'none';
+        const name = btn.getAttribute('data-name');
+        const github = btn.getAttribute('data-github');
+        const itchio = btn.getAttribute('data-itchio');
+        const project = btn.getAttribute('data-project');
+
+        dialogText.textContent = `Where do you want to proceed with ${name}?`;
+        dialogButtons.innerHTML = '';
+
+        if (github) {
+          const ghBtn = document.createElement('button');
+          ghBtn.className = 'win-btn';
+          ghBtn.textContent = 'GitHub';
+          ghBtn.addEventListener('click', () => { window.open(github, '_blank'); overlay.style.display = 'none'; });
+          dialogButtons.appendChild(ghBtn);
+        }
+
+        if (itchio) {
+          const itchBtn = document.createElement('button');
+          itchBtn.className = 'win-btn';
+          itchBtn.textContent = 'itch.io';
+          itchBtn.addEventListener('click', () => { window.open(itchio, '_blank'); overlay.style.display = 'none'; });
+          dialogButtons.appendChild(itchBtn);
+        }
+
+        if (project) {
+          const projBtn = document.createElement('button');
+          projBtn.className = 'win-btn';
+          projBtn.textContent = 'Website';
+          projBtn.addEventListener('click', () => { window.open(project, '_blank'); overlay.style.display = 'none'; });
+          dialogButtons.appendChild(projBtn);
+        }
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.className = 'win-btn';
+        cancelBtn.textContent = 'Cancel';
+        cancelBtn.addEventListener('click', () => { overlay.style.display = 'none'; });
+        dialogButtons.appendChild(cancelBtn);
+
+        overlay.style.display = 'flex';
       });
     });
   }
-
-});
+   
